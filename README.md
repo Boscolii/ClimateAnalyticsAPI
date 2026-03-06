@@ -64,7 +64,8 @@ Resposta esperada:
 
 ```
 {
-  "temperature": 25,
+  "location": "New York",
+  "temperature": 23,
   "humidity": 70
 }
 ```
