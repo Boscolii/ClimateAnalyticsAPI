@@ -1,49 +1,66 @@
 # Climate Analytics API
 
-API de análise climática desenvolvida com FastAPI e AWS DynamoDB.
+API desenvolvida em Python com FastAPI para análise e consulta de dados climáticos.
+O projeto foi containerizado com Docker e implantado em uma instância AWS EC2, simulando uma arquitetura simples de backend em nuvem.
 
-Este projeto demonstra a construção de uma API de dados climáticos utilizando arquitetura cloud simples.
+## Objetivo
 
-## Tecnologias
+Este projeto foi criado como prática de desenvolvimento backend e computação em nuvem reforçando:
 
-- Python
-- FastAPI
-- AWS DynamoDB
-- Boto3
+* criação de APIs modernas
+* containerização com Docker
+* deploy em infraestrutura cloud
+* integração com serviços da AWS
 
-## Funcionalidades
+## Tecnologias utilizadas
 
-Endpoints disponíveis:
+* Python 3.11
+* FastAPI
+* Uvicorn
+* Docker
+* AWS EC2
+* Boto3
+* DynamoDB
 
-GET /clima  
-Retorna dados climáticos de uma cidade.
+## Rodando com Docker
 
-GET /media-temperatura  
-Calcula a média de temperatura de uma cidade.
+### Build da imagem
 
-GET /clima-periodo  
-Busca registros climáticos em um intervalo de datas.
+```
+docker build -t climate-api .
+```
 
-GET /dia-mais-quente  
-Identifica o dia mais quente em um período.
+### Executar container
 
-GET /tendencia-temperatura  
-Analisa a tendência de temperatura.
+```
+docker run -d -p 8000:8000 climate-api
+```
 
-## Executar o projeto
+A API estará disponível em:
 
-Instalar dependências: pip install -r requirements.txt
+```
+http://localhost:8000
+```
 
-Executar API: uvicorn main:app --reload
+## Exemplo de requisição
 
-Acessar documentação automática: http://127.0.0.1:8000/docs
+```
+GET /climate
+```
 
+Resposta esperada:
 
-## Arquitetura
+```
+{
+  "temperature": 25,
+  "humidity": 70
+}
+```
 
-API construída com FastAPI que consulta dados armazenados no AWS DynamoDB.
+## Deploy
+
+O projeto foi implantado em uma instância AWS EC2, utilizando Docker para execução do container da API e integração com DynamoDB através da biblioteca boto3.
 
 ## Autor
 
-Henrique Boscoli
- 
+Henrique Nogueira Boscoli
